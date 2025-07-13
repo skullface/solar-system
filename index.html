@@ -10,46 +10,61 @@
         font-family: 'Orbit', Courier, monospace;
         background: #000;
         color: #fff;
+        background: #000 url('https://with-you-in-the-stars.vercel.app/sun.gif') center center no-repeat;
+        background-size: 300px auto;
+        cursor: crosshair;
       }
       
       span { 
         position: absolute; 
+        text-align: center;
+      }
+      
+      #star {
+        position: absolute;
+        opacity: 0;
+        text-shadow: 0 1px 0 red;
       }
     </style>
     <title>with the stars</title>
   </head>
   <body>
     <main>  
-      <span style="right:40%; top: 10%;" onclick="document.title = 'friend of the moon'">
-        saturn
-      </span> 
   
-      <span style="right: 20%; top: 30%;" title="RIP homie" onclick="document.title = 'with the stars'">
-        pluto
-      </span>
-  
-      <span style="left: 10%; top: 40%;" onclick="document.title = 'friend of the moon'">
-        uranus
-      </span>
-  
-      <span style="left: 44%; top: 70%;" onclick="document.title = 'with the stars'">
-        jupiter
-      </span>
-  
-      <span style="left:14%; top: 55%;" onclick="document.title = 'friend of the moon'">
+      <span style="left: 45%; top: 70%;" onclick="innerText='수성'">
         mercury
       </span>
   
-      <span style="left: 30%; top: 80%;" onclick="document.title = 'with the stars'">
+      <span style="left: 40%; top: 15%;" onclick="innerText = '금성'">
         venus
       </span>
-  
-      <span style="right: 10%; bottom: 30%;" onclick="document.title = 'friend of the moon'">
+      
+      <span style="left: 35%; top: 50%;" onclick="innerText = '지구'">
         earth
+      </span> 
+  
+      <span style="right: 30%; top: 50%;" onclick="innerText = '화성'">
+        mars
       </span>
   
-      <span style="right: 5%; bottom: 5%;" onclick="document.title = 'with the stars'">mars</span>
+      <span style="left: 25%; top: 85%;" onclick="innerText = '목성'">
+        jupiter
+      </span>
+  
+      <span style="left: 20%; top: 36%;" onclick="innerText='토성'">
+        saturn
+      </span>
+
+      <span style="right: 15%; top: 65%;" onclick="innerText='천왕성'">
+        uranus
+      </span>
+  
+      <span style="left: 10%; top: 60%;" onclick="innerText='해왕성'">
+        neptune
+      </span>
     </main>
+    
+    <span id="star">⋆｡°✩</>
     
     <script>
       function setFavicon(src) {
@@ -77,6 +92,13 @@
       }
       
       animateFaviconText("space", 300);
-      </script>
+      
+      const stars = document.getElementById("star");
+      document.addEventListener("mousemove", (e) => {
+        stars.style.left = e.pageX + -20 + "px";
+        stars.style.top = e.pageY + 10 + "px";
+        stars.style.opacity = 1;
+      });
+    </script>
   </body>
 </html>
