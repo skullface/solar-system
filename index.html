@@ -1,6 +1,6 @@
 <html>
   <head>
-    <link rel="icon" href="favicon/s.png">
+    <link rel="icon" href="https://with-you-in-the-stars.vercel.app/favicon.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Orbit&display=swap" rel="stylesheet">
@@ -68,32 +68,6 @@
     <span id="star">⋆｡°✩</>
     
     <script>
-      function setFavicon(src) {
-        let link = document.querySelector("link[rel~='icon']");
-        if (!link) {
-          link = document.createElement('link');
-          link.rel = 'icon';
-          document.head.appendChild(link);
-        }
-        link.href = src;
-      }
-      
-      function animateFaviconText(text, delay=500) {
-        const chars = text.toLowerCase().replace(/[^a-z]/g, '').split('');
-        console.log('Animating characters:', chars);
-        let i = 0;
-        function next() {
-          const c = chars[i % chars.length];
-          console.log('Setting favicon to:', c);
-          setFavicon(`favicon/${c}.png`);
-          i++;
-          setTimeout(next, delay);
-        }
-        next();
-      }
-      
-      animateFaviconText("space", 300);
-      
       const stars = document.getElementById("star");
       document.addEventListener("mousemove", (e) => {
         stars.style.left = e.pageX + -20 + "px";
