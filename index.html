@@ -1,0 +1,82 @@
+<html>
+  <head>
+    <link rel="icon" href="favicon/s.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbit&display=swap" rel="stylesheet">
+    <style type="text/css">
+      body {
+        padding: 2rem;
+        font-family: 'Orbit', Courier, monospace;
+        background: #000;
+        color: #fff;
+      }
+      
+      span { 
+        position: absolute; 
+      }
+    </style>
+    <title>with the stars</title>
+  </head>
+  <body>
+    <main>  
+      <span style="right:40%; top: 10%;" onclick="document.title = 'friend of the moon'">
+        saturn
+      </span> 
+  
+      <span style="right: 20%; top: 30%;" title="RIP homie" onclick="document.title = 'with the stars'">
+        pluto
+      </span>
+  
+      <span style="left: 10%; top: 40%;" onclick="document.title = 'friend of the moon'">
+        uranus
+      </span>
+  
+      <span style="left: 44%; top: 70%;" onclick="document.title = 'with the stars'">
+        jupiter
+      </span>
+  
+      <span style="left:14%; top: 55%;" onclick="document.title = 'friend of the moon'">
+        mercury
+      </span>
+  
+      <span style="left: 30%; top: 80%;" onclick="document.title = 'with the stars'">
+        venus
+      </span>
+  
+      <span style="right: 10%; bottom: 30%;" onclick="document.title = 'friend of the moon'">
+        earth
+      </span>
+  
+      <span style="right: 5%; bottom: 5%;" onclick="document.title = 'with the stars'">mars</span>
+    </main>
+    
+    <script>
+      function setFavicon(src) {
+        let link = document.querySelector("link[rel~='icon']");
+        if (!link) {
+          link = document.createElement('link');
+          link.rel = 'icon';
+          document.head.appendChild(link);
+        }
+        link.href = src;
+      }
+      
+      function animateFaviconText(text, delay=500) {
+        const chars = text.toLowerCase().replace(/[^a-z]/g, '').split('');
+        console.log('Animating characters:', chars);
+        let i = 0;
+        function next() {
+          const c = chars[i % chars.length];
+          console.log('Setting favicon to:', c);
+          setFavicon(`favicon/${c}.png`);
+          i++;
+          setTimeout(next, delay);
+        }
+        next();
+      }
+      
+      animateFaviconText("space", 300);
+      </script>
+  </body>
+</html>
